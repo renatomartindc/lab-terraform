@@ -69,7 +69,7 @@ module "ec2" {
   web_security_group_id = aws_security_group.web.id
   target_group_arn      = module.alb.target_group_arn
   db_endpoint           = module.rds.db_instance_endpoint
-  ssh_public_key        = file("~/.ssh/id_rsa.pub") # Ajustar ruta según tu key
+  ssh_public_key        = file("C:/Users/elsie/.ssh/terraform-lab.pub") # Ajustar ruta según tu key
   common_tags           = local.common_tags
 
   depends_on = [module.vpc, module.alb, module.rds]
