@@ -143,7 +143,7 @@ resource "aws_route_table_association" "private_db" {
 
 # DB Subnet Group
 resource "aws_db_subnet_group" "main" {
-  name       = "${var.project_name}-${var.environment}-db-subnet-group"
+  name       = "db-subnet-group-${var.project_name}-${var.environment}"
   subnet_ids = aws_subnet.private_db[*].id
 
   tags = merge(var.common_tags, {

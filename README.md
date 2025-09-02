@@ -6,6 +6,9 @@
 * 1. Comandos mostrados en Power Shell
 * 2. La infraestructura AWS se ejecutara sobre REGION OREGON (us-west-2)
 
+## Arquitectura
+
+
 ## Generar SSH
 
 * Crear directorio para las keys si no existe
@@ -37,11 +40,81 @@ Ejemplo:
 Nota: Ubicarse en el directorio raiz del proyecto (\lab-terraform)
 
 * Inicializar Terraform (descargar providers)
+```
 terraform init
+```
 
 * Verificar la inicialización
+```
 terraform version
-
+```
 
 ## Validar Configuracion
+
+* Validar sintaxis de los archivos .tf
+```
+terraform validate
+```
+
+* Formatear código (opcional pero recomendado)
+```
+terraform fmt
+```
+
+* Revisar el plan de ejecución
+```
+terraform plan
+```
+
+## Crear Infraestructura
+
+* Aplicar la configuración (crear recursos)
+```
+terraform apply
+```
+
+* Confirmar con 'yes' cuando se solicite o usar auto-approve (solo para labs - Opcional)
+```
+terraform apply -auto-approve
+```
+
+## Verificar Despliegue
+
+* Mostrar los outputs definidos
+```
+terraform output
+```
+
+* Obtener la IP del Load Balancer
+```
+$ALB_DNS = terraform output -raw alb_dns_name
+Write-Host "Load Balancer DNS: $ALB_DNS"
+```
+* Verificar el estado de los recursos
+```
+terraform state list
+terraform show
+```
+
+## Probar la Aplicacion
+
+* Invocar la URL del Load Balancer en el navegador
+
+http://3tier-webapp-dev-alb-1735926688.us-west-2.elb.amazonaws.com
+
+
+
+## Limpieza de recursos
+
+* Revisar qué se va a eliminar
+```
+terraform plan -destroy
+```
+
+* Eliminar todos los recursos
+```
+terraform destroy
+```
+
+
 

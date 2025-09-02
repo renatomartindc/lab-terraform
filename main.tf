@@ -15,23 +15,23 @@ module "vpc" {
 
   project_name       = var.project_name
   environment        = var.environment
-  vpc_cidr          = var.vpc_cidr
+  vpc_cidr           = var.vpc_cidr
   availability_zones = var.availability_zones
-  common_tags       = local.common_tags
+  common_tags        = local.common_tags
 }
 
 # Módulo ALB
 module "alb" {
   source = "./modules/alb"
 
-  project_name             = var.project_name
-  environment              = var.environment
-  vpc_id                   = module.vpc.vpc_id
-  public_subnet_ids        = module.vpc.public_subnet_ids
-  alb_security_group_id    = aws_security_group.alb.id
-  health_check_path        = "/health"
+  project_name               = var.project_name
+  environment                = var.environment
+  vpc_id                     = module.vpc.vpc_id
+  public_subnet_ids          = module.vpc.public_subnet_ids
+  alb_security_group_id      = aws_security_group.alb.id
+  health_check_path          = "/health"
   enable_deletion_protection = false
-  common_tags              = local.common_tags
+  common_tags                = local.common_tags
 
   depends_on = [module.vpc]
 }
@@ -40,17 +40,17 @@ module "alb" {
 module "rds" {
   source = "./modules/rds"
 
-  project_name                = var.project_name
-  environment                 = var.environment
-  instance_class              = var.db_instance_class
-  db_name                     = var.db_name
-  db_username                 = var.db_username
-  db_password                 = var.db_password
-  db_subnet_group_name        = module.vpc.db_subnet_group_name
-  database_security_group_id  = aws_security_group.database.id
-  skip_final_snapshot         = true  # Solo para desarrollo
-  deletion_protection         = false # Solo para desarrollo
-  common_tags                 = local.common_tags
+  project_name               = var.project_name
+  environment                = var.environment
+  instance_class             = var.db_instance_class
+  db_name                    = var.db_name
+  db_username                = var.db_username
+  db_password                = var.db_password
+  db_subnet_group_name       = module.vpc.db_subnet_group_name
+  database_security_group_id = aws_security_group.database.id
+  skip_final_snapshot        = true  # Solo para desarrollo
+  deletion_protection        = false # Solo para desarrollo
+  common_tags                = local.common_tags
 
   depends_on = [module.vpc]
 }
@@ -59,7 +59,7 @@ module "rds" {
 module "ec2" {
   source = "./modules/ec2"
 
-  project_name           = var.project_name
+  project_name          = var.project_name
   environment           = var.environment
   instance_type         = var.instance_type
   min_size              = var.min_size

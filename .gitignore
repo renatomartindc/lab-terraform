@@ -1,0 +1,30 @@
+# Crear o editar el archivo .gitignore en la raíz del proyecto
+@"
+# Terraform files
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+*.tfplan
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# SSH Keys (por seguridad)
+*.pem
+*.pub
+terraform-lab
+terraform-lab.pub
+
+# Logs
+*.log
+terraform.log
+"@ | Out-File -FilePath ".gitignore" -Encoding UTF8

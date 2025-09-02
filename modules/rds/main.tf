@@ -6,7 +6,7 @@ resource "random_password" "db_password" {
 
 # RDS instance
 resource "aws_db_instance" "main" {
-  identifier             = "${var.project_name}-${var.environment}-db"
+  identifier             = "db-${var.project_name}-${var.environment}-db"
   allocated_storage      = var.allocated_storage
   max_allocated_storage  = var.max_allocated_storage
   storage_type           = "gp2"
