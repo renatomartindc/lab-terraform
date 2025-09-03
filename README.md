@@ -46,18 +46,14 @@ Nota: Ubicarse en el directorio raiz del proyecto (\lab-terraform)
 terraform init
 ```
 
-Ejemplo: 
 ![Terraform init](images/init.png)
-
 
 * Verificar la inicialización
 ```
 terraform version
 ```
 
-Ejemplo: 
 ![Terraform version](images/version.png)
-
 
 ## Validar Configuracion
 
@@ -65,28 +61,22 @@ Ejemplo:
 ```
 terraform validate
 ```
-
-Ejemplo: 
+ 
 ![Terraform validate](images/validate.png)
-
 
 * Formatear código (opcional pero recomendado)
 ```
 terraform fmt
 ```
 
-Ejemplo: 
 ![Terraform fmt](images/fmt.png)
-
 
 * Revisar el plan de ejecución
 ```
 terraform plan
 ```
 
-Ejemplo: 
 ![Terraform plan](images/plan.png)
-
 
 ## Crear Infraestructura
 
@@ -95,9 +85,7 @@ Ejemplo:
 terraform apply
 ```
 
-Ejemplo: 
 ![Terraform apply](images/apply.png)
-
 
 * Confirmar con 'yes' cuando se solicite o usar auto-approve (solo para labs - Opcional)
 ```
@@ -111,9 +99,7 @@ terraform apply -auto-approve
 terraform output
 ```
 
-Ejemplo: 
 ![Terraform output](images/output.png)
-
 
 * Obtener la IP del Load Balancer
 ```
@@ -132,9 +118,7 @@ terraform show
 
 http://3tier-webapp-dev-alb-1735926688.us-west-2.elb.amazonaws.com
 
-Ejemplo: 
 ![Web 3 Tier](images/aplicacion.png)
-
 
 ## Limpieza de recursos
 
@@ -148,8 +132,6 @@ terraform plan -destroy
 terraform destroy
 ```
 
-Ejemplo: 
 ![Terraform destroy](images/destroy.png)
-
 
 
